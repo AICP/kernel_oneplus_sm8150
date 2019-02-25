@@ -35,6 +35,10 @@
 #include "oplus_display_panel_common.h"
 #endif /* OPLUS_BUG_STABILITY */
 
+#ifdef CONFIG_KLAPSE
+#include "../sde/klapse.h"
+#endif
+
 /**
  * topology is currently defined by a set of following 3 values:
  * 1. num of layer mixers
@@ -1101,6 +1105,10 @@ static int dsi_panel_update_backlight(struct dsi_panel *panel,
 		pr_err("dsi_cmd AOD mode return bl_lvl:%d\n",bl_lvl);
 		return 0;
 	}
+	
+#ifdef CONFIG_KLAPSE
+	set_rgb_slider(bl_lvl);
+#endif
 
 #ifdef OPLUS_FEATURE_AOD_RAMLESS
 	if (panel->oplus_priv.is_aod_ramless && !oplus_display_mode)

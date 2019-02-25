@@ -241,3 +241,4 @@ msm_drm-y += oplus/oplus_mm_kevent_fb.o \
 	oplus/oplus_display_panel_hbm.o
 
 obj-$(CONFIG_DRM_MSM)	+= msm_drm.o
+msm_drm-$(CONFIG_KLAPSE) += sde/klapse.o
