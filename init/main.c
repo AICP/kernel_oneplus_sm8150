@@ -736,7 +736,6 @@ asmlinkage __visible void __init start_kernel(void)
 	if(phx_set_boot_stage)
 		phx_set_boot_stage(KERNEL_DELAYACCT_INIT_DONE);
 //#endif
-	check_bugs();
 
 	acpi_subsystem_init();
 	arch_post_acpi_subsys_init();
